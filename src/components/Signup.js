@@ -54,7 +54,7 @@ const sign = async (name, email, password) => {
   }
   }
   return (
-    <div  style={{paddingBottom:"10vh"}}>
+    <div style={{paddingBottom:"10vh",marginTop:"90px"}}>
   <div id="card">
 <div id="card-content">
  <div id="card-title">

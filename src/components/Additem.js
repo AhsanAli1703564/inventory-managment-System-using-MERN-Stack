@@ -73,7 +73,7 @@ const handle=(e)=>{
    
   </form>
   </center>
-  <center><Link to="" type="submit" className="btn btn-secondary dtn-sm" onClick={handle}>Add Item</Link></center>
+  <center><Link to="" type="submit" className="btnclr my-2 mx-2" onClick={handle}>Add Item</Link></center>
 
   </div>
   )

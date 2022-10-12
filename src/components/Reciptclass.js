@@ -16,8 +16,8 @@ export const ComponentToPrint = React.forwardRef((props, ref) => {
       <div ref={ref}> <div className="ticket" >
       {/* <img src="./logo.png" alt="Logo"/> */}
      <h5 style={{margin:"0px"}}>Cash Deposit</h5>
-     <span style={{fontSize:"4px"}}>Reciept No #{(recipt.length===1)?"Token":recipt[1].token}</span>
-     <br/><span style={{fontSize:"4px"}}>Date :{(recipt.length===1)?"Date":recipt[1].date}</span>
+     <span style={{fontSize:"12px"}}>Reciept No #{(recipt.length===1)?"Token":recipt[1].token}</span>
+     <br/><span style={{fontSize:"12px"}}>Date :{(recipt.length===1)?"Date":recipt[1].date}</span>
      <center>
       <table>
           <thead>

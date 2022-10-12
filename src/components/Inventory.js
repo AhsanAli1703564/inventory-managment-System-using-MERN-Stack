@@ -8,7 +8,7 @@ import { useState } from 'react'
 function Inventory() {
   const[operatorsetter,setoperatorsetter]=useState("")
   const conte= useContext(ShopContext)
-  const {fetchall,all,del,fetchD,data,add}=conte
+  const {fetchall,all,del,fetchD,data,add,setAlert}=conte
   useEffect(() => {
   fetchall()
   
@@ -25,6 +25,10 @@ function Inventory() {
  const fetchDa=(x)=>{
    fetchD(x)
    rfe.current.click()
+   setAlert({ shower: "", message: ` ${x} has been selected  for transaction` })
+   setTimeout(() => {
+     setAlert({shower:"d-none",message:""})
+  },2000)
  }
  
 const handle=(e)=>{
@@ -45,10 +49,13 @@ else{e.preventDefault()}
 ///////////////////////setting operator
 const setoperator=()=>{
   setoperatorsetter("d-none")
-  let operator=document.getElementById("operator").value
+  let operator=document.getElementById("operator_input").value
   if(!localStorage.getItem("operator")){
     localStorage.setItem("operator",operator)
-
+    setAlert({ shower: "", message: "Operator has logged inn" })
+        setTimeout(() => {
+          setAlert({shower:"d-none",message:""})
+       },2000)
   }
 }
 let oper=localStorage.getItem("operator")
@@ -56,33 +63,36 @@ let oper=localStorage.getItem("operator")
 const removeoperator=()=>{
   setoperatorsetter("")
   localStorage.removeItem("operator")
-
+  setAlert({ shower: "", message: "Operator has logged out" })
+  setTimeout(() => {
+    setAlert({shower:"d-none",message:""})
+ },2000)
 }
   return (
-    <div style={{paddingBottom:"10px"}}>
+    <section className='mt-8' >
     <br />
-    <div className={`lovi ${operatorsetter} ${oper?"d-none":""}`}>
-     <label htmlFor="operator"  style={{display:"block"}}>operator</label>
-     <input type="text" id="operator" placeholder='name' />
-      <button className='btn btn-secondary my-2' onClick={setoperator}>Enter</button>
+    <div id='operat' className={`lovi ${operatorsetter} ${oper?"d-none":""}`}>
+     <label htmlFor="operator" id="inventory_label" style={{display:"block"}}>operator</label>
+     <input type="text" id="operator_input" placeholder='name' />
+      <button className='btnclr mx-2 my-2' onClick={setoperator}>Enter</button>
       </div>
-      <button className={`btn btn-secondary my-2  ${(operatorsetter==="d-none")?"":"d-none"} `}onClick={removeoperator}>Logout operator</button>
+      <button className={`btnclr my-2  ${oper?"":"d-none"} `} onClick={removeoperator}>Logout operator</button>
     <center><h2>Inventory</h2></center>
 
-<div className='tablesize'>
-  <table className="table " id="table">
-<thead>
-  <tr className='trow'>
-    <th className="thead"scope="col">Item Name</th>
-    <th className="thead"scope="col">Totalitems</th>
+<div id="overflow_table2">
+  <table  className='sales_table'>
+<thead >
+  <tr className='sales_thead' >
+    <th className="sales_theads" scope="col">Item Name</th>
+    <th className="sales_theads" scope="col">Totalitems</th>
 
-    <th className="thead"scope="col">Price</th>
-    <th className="thead"scope="col">Expiry</th>
-    <th className="thead"scope="col">Delete Item</th>
+    <th className="sales_theads" scope="col">Price</th>
+    <th className="sales_theads" scope="col">Expiry</th>
+    <th className="sales_theads" scope="col">Delete Item</th>
 
   </tr>
 </thead>
-<tbody>
+<tbody >
   {all.filter((val)=>{
     if(data.item===""){return val}
     else if(val.tittle.toLowerCase().includes((data.item).toLowerCase())){
@@ -91,12 +101,12 @@ const removeoperator=()=>{
  }).map((elem)=>{
 
   return (
-    <tr  key={elem._id} className=" trow"  >
-    <td className="tdata"style={{fontSize:"3vh"}} onClick={()=>{fetchDa(elem.tittle)}}>{elem.tittle}</td>
-    <td className="tdata"onClick={()=>{fetchDa(elem.tittle)}}> <strong style={{color:"grey"}} ><b >{elem.totalitems}</b></strong></td>
-    <td className="tdata"onClick={()=>{fetchDa(elem.tittle)}}> <strong className='green'><b> {elem.price}</b></strong> </td>
-    <td className="tdata"onClick={()=>{fetchDa(elem.tittle)}}> <strong className='green'><b> {elem.expiry}</b></strong></td>
-    <td ><a href="#" className="btnclr" onClick={()=>dele(elem._id)}  style={{backgroundColor:"#0075a3",verticalAlign:"middle"}}>Delete</a>
+    <tr  key={elem._id} className="sales_row" >
+    <td className="sales_tdatas"style={{fontSize:"3vh"}} onClick={()=>{fetchDa(elem.tittle)}}>{elem.tittle}</td>
+    <td className="sales_tdatas"onClick={()=>{fetchDa(elem.tittle)}}> <strong style={{color:"grey"}} ><b >{elem.totalitems}</b></strong></td>
+    <td className="sales_tdatas"onClick={()=>{fetchDa(elem.tittle)}}> <strong className='green'><b> {elem.price}</b></strong> </td>
+    <td className="sales_tdatas"onClick={()=>{fetchDa(elem.tittle)}}> <strong className='green'><b> {elem.expiry}</b></strong></td>
+    <td className='sales_tdatas' ><a href="#" className="btnclr my-2 mx-2" onClick={()=>dele(elem._id)}  >Delete</a>
     </td>
   </tr>
 )
@@ -118,7 +128,7 @@ const removeoperator=()=>{
   </div>
  
   </div>
-  </div>
+  </section>
   )
 }
 

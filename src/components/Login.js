@@ -31,6 +31,7 @@ const control=(e)=>{
 //////////////////////////////////////////////
 let email=log.email
 let password=log.password
+// function loging
 const loging=async()=>{
  
   
@@ -101,7 +102,7 @@ gethistory()
 
   return (
    
-    <div  style={{paddingBottom:"10vh"}}>
+    <div  style={{paddingBottom:"10vh",marginTop:"90px"}}>
      <div id="card">
   <div id="card-content">
     <div id="card-title">
@@ -118,11 +119,10 @@ gethistory()
         </label>
       <input  onChange={control }  id="password" className="form-content" type="password" name="password" required />
       <div className="form-border"></div>
-<center><button  onClick={loging} type="button"  className=" btnclr mx-3 my-3 ">Login</button></center>
+<center><button  onClick={loging} type="button"  className=" btnclr  my-3 " >Login</button></center>
 <center><div className='container my-3' >
   <span className='fw-lighter ' >  Sign up if dont have an account</span>
   
-  <Link to="/Signup"  type="button" className=" btnclr my-3 mx-3 ">Sign-up</Link>
   
   </div></center>
     </form>
@@ -130,7 +130,8 @@ gethistory()
   </div>
 
 </div>
-<center><span style={{color:"grey", marginTop:"4vh"}}>Don,t have an Account <strong>Sign-up</strong></span></center>
+<center><span style={{color:"grey", marginTop:"4vh"}}>Don,t have an Account 
+<Link to="/Signup"  type="button" id="btnclr" className='btnclr my-3'><strong className='btnclr my-3'>Sign-up</strong></Link></span></center>
 
 </div>
   )

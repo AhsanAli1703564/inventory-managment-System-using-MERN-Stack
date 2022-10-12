@@ -1,17 +1,30 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import ShopContext from '../Shopcontext/itemsContext';
 import { useEffect } from 'react';
 import ims from "./ims.svg"
+
 function Navbar() {
+   //////////////navbar on samller screen toggle view of nav bar cancel and menu  icon toggle state
+   let[image,setImage]=useState("./menu.jpg")
+   const cancel=()=>{
+    if(image == "./menu.jpg" ){
+      setImage("./cancel.png")
+    }
+    else{
+      setImage("./menu.jpg")
+    }
+   }
+   ///////////////////////////////////////////////////////////////////////////////
   const location = useLocation()
   useEffect(() => {
 
   }, [location])
-
+ 
   let tok = localStorage.getItem("token")
   const context = useContext(ShopContext)
   const { data, setD, fetchD, art, alerter, gethistory, msggiver, disitem, tokenstate, settokenstate } = context
+  
   ///////////////////////////////////using enetr////////////////////////////////////////////////////
   const clickhandle = (e) => {
     const datafromsearchbar = document.getElementById('sear').value
@@ -47,52 +60,72 @@ function Navbar() {
     localStorage.setItem('token')
     settokenstate(tok)
   }
+ 
   return (
-    <>
-      <nav className="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-        <Link className="navbarbrnd" to='/home'><div className='icon'><img src={ims} /></div></Link>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto">
-           
-              <Link to="/invent" className={`btnclr my-1 mx-1 ${!tok ? "d-none" : ""}`}>
+    <header>
+      <nav >
+      <label htmlFor="check" > <img src={require(`${image}`)} width={"50px"} height={"50px"} onClick={cancel} className="checkbtn" id="cancel"  ></img></label>
+                <input type="checkbox" name="check" id="check" />
+
+
+
+        <Link className="navbarbrnd" id="navbaricon" to='/home'>
+
+                  <i ><img className="ml-12" src={require("./home.png")} alt="no image " width={"50px"} height={"50px"}/> <span id="text_brand">Ahsan</span></i>
+          </Link>
+
+      
+        
+          <ul id="nav-ul">
+          <li  className="line">
+           <form className={`form-inline  ${!tok  ? "d-none" : "d-flex"}`} id="form">
+            <input type="search" name="item" id="sear" className="form-control mr-sm-2" onChange={control}
+              placeholder="Search" aria-label="Search" />
+            <Link to="/invent"  onClick={clickhandle}
+            >Search</Link>
+          </form>
+           </li>
+            
+              <li className="line">
+              <Link to="/invent" className={` ${!tok ? "d-none" : ""}`} id="1">
                 Inventory
               </Link>
+              </li>
            
            
-              {/* <Link to="/item" className={` btnclr my-1 mx-1 ${disitem} ${!tok ? "d-none" : ""}`}
-              >item
-              </Link> */}
+             
            
            
-              <Link to="/history" className={`btnclr my-1 mx-1 ${!tok ? "d-none" : ""}`} onClick={msggiver} >
+              <li className="line">
+              <Link to="/history" className={`  ${!tok ? "d-none" : ""}`} onClick={msggiver} id="2" >
                 Sales History
               </Link>
+              </li>
            
            
-              <Link to={!tok ? "/Login" : ""} id="loginlinkonmobile" className={`btnclr my-1 mx-1${(location.pathname == "/Login") ? "d-none" : ""}`} onClick={(!tok) ? settokenst : tokenremover}
+             <li className="line"> <Link to={!tok ? "/Login" : ""}  className={` ${(location.pathname == "/Login") ? "d-none" : ""}`} onClick={(!tok) ? settokenst : tokenremover} id="3"
               >
                 {!tok ? "Login to Inventory" : "Logout"}
               </Link>
-           
+              </li>
+            
           </ul>
-          <form className={`form-inline my-1 mx-1  ${!tokenstate === null ? "d-none" : "d-flex"}`}>
-            <input type="search" name="item" id="sear" className="form-control mr-sm-2" onChange={control}
-              placeholder="Search" aria-label="Search" />
-            <Link to="/invent" className="btn btnclr my-1 mx-1" onClick={clickhandle}
-            >Search</Link>
-          </form>
-        </div>
+        
       </nav>
-      <div style={{ backgroundColor: "orange",color:"white",fontFamily:"monospace",fontSize:"4vh" }}
+      <div className={` ${art.shower}`}  >
 
+  <div id="alert">
 
-className={` ${art.shower}`}  >
-        <strong>Focus</strong><span>{art.message}</span>
+  
+  <span></span><strong id="get_focus">Focus
+  <img id='alert-icon' src={require("./alert-icon.png")} width={"40px"} height={"40px"}/>
+  </strong><span></span><span id="alert_message">{art.message}</span>
+
+  </div>
+
+     
       </div>
-    </>
+    </header>
   )
 }
 

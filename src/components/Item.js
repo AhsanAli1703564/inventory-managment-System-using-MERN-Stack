@@ -11,31 +11,21 @@ function Item() {
     const{item,updadd,setrecipt,recipt,setAlert,setreceiptshower}=cont
     const [umber,setNumber]=useState(0)
 
-    // const addupd=(id,tittle,date,dbnumber)=>{
-    //  let con= window.confirm("you realy want to continue")
-    //  if(con){
-    //   let db=parseInt(dbnumber)
-    //   let y=document.getElementById("it").value
-    //   y= parseInt(y)
-    //   updadd(id,y,tittle,date,db)
-    
-    //  }
-    
-    // }
-
-
     const addso=(id,tittle,totalitems,date,expirydate)=>{
-      if(!localStorage.getItem("operator")){
-        setAlert({shower:"",message:"Go to inventory and sign in operator name"})
+    // getting operator if signed inn
+
+    let op=localStorage.getItem("operator")
+
+      if(op==null){
+        setAlert({ shower: "", message: "Please Log in operator to complete the transaction" })
         setTimeout(() => {
           setAlert({shower:"d-none",message:""})
-        }, 2000);
-
+       },3000)
 
       }
       else{
         setreceiptshower("")
-        //  console.log(expirydate)
+      
         
     //////////////////////////////////////////////////
     
@@ -43,45 +33,13 @@ function Item() {
           let y=document.getElementById("it").value
           y=parseInt(y)
           
-        //   localStorage.setItem("db",totalitems)
-        //   localStorage.setItem('tittle',tittle)
-        //   localStorage.setItem('date',date)
-        //  localStorage.setItem("id",id)
-        //  let ar=[]
-        //////////////////////////////our array setter
-        // if(localStorage.getItem("ourarray")===null){
-        //   let obj={
-        //     id:id,
-        //     tittle:tittle,
-        //     totalitems:totalitems,
-        //     date:date,
-        //    }
-        //    let ourarry=[obj]
+     
       
-        //    localStorage.setItem("ourarray",JSON.stringify(ourarry))
-        // }
-        // else{
-        //   let obj={
-        //     id:id,
-        //     tittle:tittle,
-        //     totalitems:totalitems,
-        //     date:date,
-        //    }
-        //  let arr= JSON.parse(localStorage.getItem("ourarray"))
-        //  let ournewarray=arr.concat(obj)
-        //  localStorage.setItem("ourarray",JSON.stringify(ournewarray))
-    
-        // }
+      
         
     
       
           if(con){
-               
-        
-        
-            // let a=z*y
-        
-            
             if(y<=totalitems){
               let dat=new Date()
     let   dte=dat.getDay()
@@ -196,33 +154,26 @@ localStorage.setItem("arrayofhistory",JSON.stringify(objarray))
 
     }
   return (
-    <div style={{display:"flex",justifyContent:"space-between",paddingBottom:"8vh"}}>
-      <div  style={{display:"inline-block",width:"40vw"}}>
-    <div >  <div  >
-     <center  style={{marginTop:"5vw"}}> <h1 style={{TextDecoration:"undeline"}}>{item.tittle}</h1></center>
-    <div className="col-sm-4 ">
-   <div className="card my-3 mx-3" style={{width: '18rem'}}>
-<div className="card-body">
-  <center>
+    <div >  <div>
+    <label id="Item_label"  className='text_align_center'>{item.tittle}</label>
+    <div >
+   <div className="card my-3 mx-3" >
+<div  className='text_align_center'>
+  
  <h5 className="card-title">Name of item : <strong><b>{item.tittle}</b></strong> </h5>
- <p className="card-text">No of items in stock : <strong><b> {item.totalitems}</b></strong> </p>
- <p className="card-text">Expiry date: <strong><b> {item.expiry}</b></strong> </p>
+ <span className="card-text text_align_center">No of items in stock : <strong><b> {item.totalitems}</b></strong> </span>
+ <span className="card-text text_align_center">Expiry date: <strong><b> {item.expiry}</b></strong> </span>
 
- <p className="card-text">price: <strong><b>{item.price}</b></strong> </p>
- <p className='card-text'>Total price:   <strong>{umber}</strong> </p>
+ <span className="card-text text_align_center">price: <strong><b>{item.price}</b></strong> </span>
+ <span className='card-text text_align_center'>Total price:   <strong>{umber}</strong> </span>
 
- </center>
- <center>
- <form style={{display:"flex",flexDirection:"row",flexWrap:"wrap",marginBottom:"20px"}} >
-  <br /> <input  onChange={control} style={{height:"4vh",width:"100%", marginBottom: "10px",border:"1px solid grey",justifyContent:"center"}}  placeholder="تعداد"  id="it" autoComplete="off" aria-label="number"/>
+ <form id='Item_form'  >
+  <br /> <input  onChange={control} className="Item_form_input"   placeholder="تعداد"  id="it" autoComplete="off" aria-label="number"/>
    <br /><input style={{height:"4vh",width:"100%"}} autoComplete="off" onChange={control} placeholder="قیمت" id="sold" aria-label="number"/>
  </form>
- </center>
- <center>
- {/* <button className="btnclr mx-2 my-2" type="submit" onClick={()=>addupd(item._id,item.tittle,item.totalitems,item.date)}>Add Item</button> */}
-
+ 
  <Link to=""  className="btnclr " onClick={(e)=>{
-   addso(item._id,item.tittle,item.totalitems,item.date,item.expiry)}}>Sold</Link></center>
+   addso(item._id,item.tittle,item.totalitems,item.date,item.expiry)}}>Sold</Link>
    <button ref={refi} className='d-none' onClick={()=>{
     historyadder(item.tittle,item.price,item.totalitems)
    }}></button>
@@ -235,11 +186,8 @@ localStorage.setItem("arrayofhistory",JSON.stringify(objarray))
 </div>
 
 </div>
-</div>
-</div>
 
-<div style={{display:"inline-block",width:"40vw",justifyContent: "center",
-    display: "flex",padding:"0px 10vw"}}><Example recipt={recipt}/></div>
+<div ><Example recipt={recipt}/></div>
 </div>
   )
 }
