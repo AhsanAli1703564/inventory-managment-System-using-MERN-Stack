@@ -73,9 +73,9 @@ function Graph() {
          },
         
           borderWidth: 4,
-          borderColor:"green",
+          borderColor:"cornflowerblue",
           // backgroundColor: 'rgb(0,0,0)',
-          backgroundColor: 'rgb(111,111,980)',
+          backgroundColor: 'coral',
        
 
           borderColor: 'rgb(255, 99, 132)',
@@ -86,7 +86,8 @@ function Graph() {
   
   return (
     <>
-        <Bar
+        <Bar 
+        id='graph'
         data={dat}
       
         options={{

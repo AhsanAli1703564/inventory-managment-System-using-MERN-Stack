@@ -12,7 +12,6 @@ function Saleshistory() {
 
     useEffect(() => {
      gethistory()
-     
     }, [])
    
  
@@ -32,7 +31,7 @@ function Saleshistory() {
       <tr className="sales_thead">
         <th className="sales_theads" scope="col">Date</th>
         <th className="sales_theads" scope="col"> Name</th>
-        <th className="sales_theads" scope="col">amount sold</th>
+        <th className="sales_theads" scope="col"># of items sold</th>
         <th className="sales_theads" scope="col">Retail price</th>
         <th className="sales_theads" scope="col">Price sold </th>
         <th className="sales_theads" scope="col">total</th>
@@ -69,7 +68,7 @@ function Saleshistory() {
   </table>
   </div>
   <div>
-  <center ><h5 >Total sales :{totalsales}  <b><strong> <span>rs</span> </strong></b></h5></center>
+  <center ><h5 id="total-sales">Total sales :{totalsales}  <b><strong> <span>rs</span> </strong></b></h5></center>
     <center> <span style={{color:"   rgb(78 78 77 / 56%)"}}> the total sales will collect data for a year </span>
     <Link to="/grap" className="btnclr mx-3 my-3" onClick={getgraph}>Graph</Link>
   

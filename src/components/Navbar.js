@@ -7,11 +7,12 @@ import ims from "./ims.svg"
 function Navbar() {
    //////////////navbar on samller screen toggle view of nav bar cancel and menu  icon toggle state
    let[image,setImage]=useState("./menu.jpg")
-   const cancel=()=>{
+   const cancel=(e)=>{
     if(image == "./menu.jpg" ){
       setImage("./cancel.png")
     }
-    else{
+   
+    else {
       setImage("./menu.jpg")
     }
    }
@@ -64,25 +65,25 @@ function Navbar() {
   return (
     <header>
       <nav >
-      <label htmlFor="check" > <img src={require(`${image}`)} width={"50px"} height={"50px"} onClick={cancel} className="checkbtn" id="cancel"  ></img></label>
+      <label htmlFor="check" > <img src={require(`${image}`)} width={"50px"} height={"50px"} onClick={(e)=>{cancel(e)}} className="checkbtn" id="cancel"  ></img></label>
                 <input type="checkbox" name="check" id="check" />
 
 
 
         <Link className="navbarbrnd" id="navbaricon" to='/home'>
 
-                  <i ><img className="ml-12" src={require("./home.png")} alt="no image " width={"50px"} height={"50px"}/> <span id="text_brand">Ahsan</span></i>
+                  <i ><img className="ml-12" src={require("./home.png")} alt="no image " width={"70px"} height={"40px"}/> <span id="text_brand"></span></i>
           </Link>
 
       
         
           <ul id="nav-ul">
           <li  className="line">
-           <form className={`form-inline  ${!tok  ? "d-none" : "d-flex"}`} id="form">
-            <input type="search" name="item" id="sear" className="form-control mr-sm-2" onChange={control}
-              placeholder="Search" aria-label="Search" />
-            <Link to="/invent"  onClick={clickhandle}
-            >Search</Link>
+           <form className={`  ${!tok  ? "d-none" : "d-flex"}`} id="form">
+            <input type="search" name="item"  id="sear" className='sear'  onChange={control}
+               aria-label="Search" />
+            {/* <Link to="/invent"  onClick={clickhandle}
+            >Search</Link> */}
           </form>
            </li>
             

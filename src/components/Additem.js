@@ -49,24 +49,27 @@ const handle=(e)=>{
  
 }
   return (
-    <div  className='additemcolors'><center><h5>Add item </h5>
+    <div  className='additemcolors'><center><h5 id="add-item">Add item </h5>
       <form className='formi' style={{display:"flex",justifyContent: "space-evenly",margin:"10px 10px",flexWrap:"wrap"}}>
     <div>
-      <label htmlFor="Name of item" style={{margin:"0px 10px"}}>Name </label>
-      <input type="text" className="inpu" style={{margin:"10px 0px"}} placeholder='Name of item' name="item" id="item" onChange={control}aria-describedby="Item name"/>
+      <label htmlFor="Name of item" className='label-to-addItem'>Name </label>
+      <br />
+      <input type="text" className="inpu" style={{margin:"10px 0px"}} placeholder='Name of item' name="item" id="item" onChange={control} aria-describedby="Item name"/>
     </div>
     <div  >
-    <label htmlFor="No of items" style={{margin:"0px 10px"}}>Quantity </label>
-
+    <label htmlFor="No of items" className='label-to-addItem'>Quantity </label>
+<br />
       <input type="number" style={{margin:"10px 0px"}} placeholder='Quantity in numbers' className="inpu" name="number" id="number" onChange={control}/>
     </div>
     <div >
-    <label htmlFor="Price of item" style={{margin:"0px 10px"}}>Price </label>
+    <label htmlFor="Price of item" className='label-to-addItem'>Price </label>
+    <br />
 
       <input type="number" placeholder='Price of item'style={{margin:"10px 0px"}} className="inpu" name="price" id="price" onChange={control}/>
     </div>
     <div >
-    <label htmlFor="Expirey date of item" style={{margin:"0px 10px"}}>Expiry  </label>
+    <label htmlFor="Expirey date of item" className='label-to-addItem'>Expiry  </label>
+    <br />
 
       <input type="string" placeholder='dd/mm/yyyy'style={{margin:"10px 0px"}} className="inpu" name="Expiry" id="Expiry" onChange={control}/>
     </div>

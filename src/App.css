@@ -36,7 +36,6 @@ body {
 
 
 
-.description,
 .description {
 
 
@@ -46,7 +45,6 @@ body {
   max-width: 75px;
 }
 
-.quantity,
 .quantity {
 
 
@@ -57,7 +55,6 @@ body {
   word-break: break-all;
 }
 
-.price,
 .price {
 
 
@@ -153,17 +150,7 @@ img {
     align-items: center;
   }
 
-  div.words {
-    color: orange;
-    /* font-size: 5vh; */
-    line-height: 5vh;
-  }
-
-  div.words span {
-    font-size: 10vh;
-    display: inline-block;
-    animation: move 3s ease-in-out infinite;
-  }
+  
 
   /* p.desc{display: block;} */
 
@@ -204,12 +191,15 @@ img {
 }
 
 .inpu {
-  border-radius: 10px;
+  border-radius: 5px;
+font-size: 20px;
+height: 25px;
   border: 2px solid grey
 }
 
 .additemcolors {
   background-color: #d1d6d1a1;
+  margin-top: 100px;
 }
 
 .icon {
@@ -255,7 +245,7 @@ img {
 }
 
 .form-border {
-  background: -webkit-linear-gradient(right, #a6f77b, #2ec06f);
+  background: -webkit-linear-gradient(right, coral, cornflowerblue);
   height: 1px;
   width: 100%;
 }
@@ -269,7 +259,7 @@ img {
 }
 
 .underline-title {
-  background: -webkit-linear-gradient(right, #3471a2, yellow);
+  background: -webkit-linear-gradient(right, coral, cornflowerblue);
   height: 2px;
   margin: -1.1rem auto 0 auto;
   width: 89px;
@@ -291,31 +281,12 @@ img {
 
 
 
-.homeflex {
-  display: flex;
-  flex-wrap: wrap;
-  /* color: red; */
-  background-color: orange;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
 
 
 
-.btnclr {
-  border: none;
-  border-radius: 7px;
-  padding: 1vh;
-  background-color: #3471a2;
-  color: white;
-  margin: 0px;
-}
 
-a:hover {
-  color: white;
-  text-decoration: underline;
-}
+
+
 
 
 
@@ -389,7 +360,6 @@ a:hover {
 
 
 
-
 /* //////////////////////////////////////////////////footer/////////////////////////////////////////////////// */
 #footer_container {
   display: flex;
@@ -403,7 +373,7 @@ a:hover {
 
 #footer_heading {
   margin-right: 10px;
-  color: white;
+  color: darkcyan;
   padding: 6px;
 
 }
@@ -425,13 +395,14 @@ a:hover {
 }
 
 #footer_peragraph {
-  color: gray;
+  color: burlywood;
 }
 
 #footer_anchor {
   display: block;
-  color: rgb(72 0 126);
+  color: yellowgreen;
   margin: 10px;
+  font-size: 16px;
 }
 
 #footer_icons {
@@ -484,10 +455,8 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: white;
+  color: cornflowerblue;
   transition: all 0.3s ease;
-  text-decoration: none;
-  display: inline-block;
   transform: scale(1.2);
 }
 
@@ -495,10 +464,13 @@ nav ul li a:hover {
 
 
 nav ul li a:focus {
-  color:purple;
-  transform: scale(1.2);
-  display: inline-block;
+  color:coral;
+  transform: scale(1.04);
 
+}
+#total-sales{
+  font-size: 35px;
+  font-weight: 800;
 }
 
 nav ul li {
@@ -530,9 +502,7 @@ nav ul li {
 }
 
 /* //////////////////////////////////////////////// */
-#sear{
-  margin-right: 5px;
-}
+
 /* /////////////////////////////////////////Reciept and transactio card */
 #item_transaction{
   display:flex;
@@ -568,10 +538,24 @@ nav ul li {
   margin-left: 20px;
   border-radius: 10px;
   padding: 8px;
-  background-color: rgb(72 0 126);
+  font-size: 25px;
+  box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, 0.25);
+  background-color: coral;
   text-decoration: none;
+  box-sizing: border-box;
+  font-weight: 400;
+  border: none;
+}
+.btnclr:hover{
+  color: cornflowerblue;
 }
 
+#navbaricon:hover{
+  border-bottom: 4px solid cornflowerblue;
+}
+#navbaricon:focus{
+  border-bottom: 4px solid coral;
+}
 table {
   min-width: 100%;
 
@@ -727,13 +711,13 @@ table {
 
 /* ////////////////////these are the colors for the sales history values accordingly */
 .green{
-  color: green;
+  color: cornflowerblue;
+  font-weight: 600;
 }
-.black{
-  color: black;
-}
+
+
 .red{
-  color: red;
+  color: coral;
 }
 
 /* /////////////////////////////////////////////////////////////////////////////// */
@@ -746,16 +730,27 @@ table {
 .sales_thead{
   width:100%;
 }
+#operat{
+  position: relative;
+  top: -100px;
+}
 .sales_theads{
-  font-size: 16px;
+  font-size: 25px;
   border: 2px solid white;
   text-align: center;
+  background-color:#efefc3 ;
+}
+.heading-inventory{
+  font-size: 50px;
+  margin-top: 5px;
 }
 .sales_tdatas{
   border: 2px solid white;
   padding-bottom: 16px;
   padding-top: 16px;
+  font-weight: 300;
   text-align: center;
+  font-size: 20px;
 
 }
 #overflow_table1{
@@ -791,14 +786,14 @@ flex-wrap: wrap;
   width: 50vw;
   z-index:1000;
 border-radius:12px ;
-border: 20px solid purple;
+border: 20px solid coral;
 box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1.3), 0 12px 40px 0 rgba(0, 0, 0, 0.33);
 
 background-color: white;
 }
 #get_focus{
   font-size: 10vh;
-  color: purple;
+  color: cornflowerblue;
   text-align: center;
   padding: 20px;
 }
@@ -814,13 +809,140 @@ background-color: white;
 #text_brand{
   font-family: 'Silkscreen', cursive;
   font-size: 25px;
+  color: yellow;
 }
 #alert-icon{
   width: 50px;
   height: 50px;
 }
-/* //////////////////////////////REsponsive */
+.sear{height: 30px;
+margin-right: 10px;
+font-size: 25px;
+}
+/* ADD items to the database */
+#add-item{
+  font-size: 50px;
+}
+.label-to-addItem{
+  font-size: 30px;
+}
+#home-svg{
+ 
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  background-image: url("./components/waves.png");
+  height: 150px;
+  background-size: cover;
+  background-repeat:no-repeat;
+  font-size: 50px;
+  font-family: 900;
+  text-align: center;
+  display: flex;
+  position: relative;
+  top:-4px ;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.h-s-m{
+  margin-left:40px ;
+  margin-right: 40px;
+  
+}
+#home-svg-heading2{
+  margin-top: 30px;
+}
+#home-svg-heading{
+  color:white;
+  font-weight: 900;
+  margin-left: 150px;
+  text-shadow: 5px 5px rgba(0, 0, 0,0.3);
+}
+
+.burl{
+  color: burlywood;
+}
+.d-cyan{
+  color: darkcyan;
+}
+.aqua{
+  color: aquamarine;
+}
+#avun{
+  font-size: 70px;
+  text-align: center;
+  font-weight: 800;
+}
+/* //////////////////////////////REsponsive//////////////////////////////////////////// */
+
 @media only screen and (max-width:992px) {
+  #home-svg-heading2{
+display: none;
+  }
+  .ml-12{
+    margin-left: 10px;
+  }
+  #home-svg-heading{
+    color:white;
+    font-weight: 900;
+    margin-left: 25px;
+    
+  }
+  #home-svg{
+    margin-top: 60px;
+  }
+  #add-item{
+    font-size: 30px;
+  }
+  .label-to-addItem{
+    display: block;
+    text-align: center;
+    font-size: 20px;
+  }
+  .inpu{
+    display: block;
+    width: 90vw;
+    margin: auto;
+  }
+  #operat{
+    top: 0px;
+  }
+  #graph{
+    margin-top: 100px;
+  }
+   /* login form */
+ .btnclr {
+  color: white;
+  margin-left: 20px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 8px;
+  margin: 10px;
+  background-color: coral;
+  text-decoration: none;
+}
+.btnclr:hover{
+  color: yellow;
+}
+ .form-content {
+  background: #c1bebe;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding-top: 14px;
+  font-size: 25px;
+  font-weight: 300;
+  border-radius: 5px;
+}
+#card-content {
+  padding: 12px 44px;
+  font-size: 25px;
+  background-color: #939393;
+}
+.labeli{
+  font-size: 25px;
+}
   #alert{
     display: flex ;
     justify-content: center;
@@ -841,7 +963,7 @@ background-color: white;
   }
   #get_focus{
     font-size: 40px;
-    color: purple;
+    color: coral;
     text-align: center;
   }
   #alert_message{
@@ -854,7 +976,6 @@ background-color: white;
  #footer_peragraph{
   display: none;
  }
- .d-none
 
 
 
@@ -890,14 +1011,19 @@ background-color: white;
     padding: 0px;
     margin: 0;
   }
-
+nav ul li{
+  display: block;
+  width: 100%;
+}
   nav ul {
     margin: 0px;
     list-style: none;
-    width: 100%;
+    width: 70%;
+    height: 40vh;
     position: absolute;
-    top: -100vh;
-    display: flex;padding: 20px;
+  right: -100vh;
+    display: flex;
+    padding: 20px;
     justify-content: center;
     align-items: center;
     background-color: black;
@@ -905,19 +1031,16 @@ background-color: white;
     flex-wrap: wrap;
     opacity: 0.3;
     transition: all 1s;
-    border-radius: 0px 0px 0px 100px;
-    border-bottom: 9px solid rgb(72 0 126);
-    border-left: 5px solid rgb(72 0 126);
+    border-radius: 0px 0px 0px 10px;
+top: 59px;
     padding-bottom: 20px;
 
   }
-.thirdpic
   /* Input of navbar Search */
-  #sear {
-    width: 90vw;
-    height: 50px;
-    display: block;
-    margin-right: 40px;
+  .sear {
+    width: 97%;
+    height: 40px;
+    
   }
 
   /* /////////////////////// */
@@ -934,22 +1057,30 @@ background-color: white;
   }
 
   nav ul li a {
-    font-size: 17px;
+    font-size: 25px;
     text-decoration: none;
     transition: 0.3s ease 0s;
     z-index: -1000;
-    background: rgb(72 0 126);
-    display: inline-block;
+text-align: center;
+    background: coral;
+    display: block;
     padding: 5px;
     border-radius:5px;
     margin-top: 10px;
-
+    font-weight: bold;
   }
+  
+  nav ul li a:hover {
+    color:cornflowerblue;
+    transform: scale(1.09);
+    transition: 0.4s ease-in-out ;
+  
+  }
+  
   
 
 
 
- 
 
   .checkbtn {
     float: right;
@@ -968,7 +1099,8 @@ background-color: white;
 
 
   #check:checked~ul {
-    top: 60px;
+    right: 0;
+   
     opacity: 1;
   }
 

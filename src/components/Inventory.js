@@ -16,6 +16,8 @@ function Inventory() {
   }, [])
  const dele=(x)=>{
    let bool=window.confirm("Do you really want to Delete this item")
+   localStorage.setItem("additem","additem")
+  localStorage.removeItem("token")
    if(bool){
     del(x)
 
@@ -71,13 +73,13 @@ const removeoperator=()=>{
   return (
     <section className='mt-8' >
     <br />
-    <div id='operat' className={`lovi ${operatorsetter} ${oper?"d-none":""}`}>
+    <form id='operat' className={`lovi ${operatorsetter} ${oper?"d-none":""}`}>
      <label htmlFor="operator" id="inventory_label" style={{display:"block"}}>operator</label>
-     <input type="text" id="operator_input" placeholder='name' />
-      <button className='btnclr mx-2 my-2' onClick={setoperator}>Enter</button>
-      </div>
+     <input type="text" id="operator_input" className='sear'  />
+      <button className='btnclr mx-2 my-2' onClick={setoperator}>Login </button>
+      </form>
       <button className={`btnclr my-2  ${oper?"":"d-none"} `} onClick={removeoperator}>Logout operator</button>
-    <center><h2>Inventory</h2></center>
+    <center><h2 className="heading-inventory">Inventory</h2></center>
 
 <div id="overflow_table2">
   <table  className='sales_table'>
@@ -106,7 +108,7 @@ const removeoperator=()=>{
     <td className="sales_tdatas"onClick={()=>{fetchDa(elem.tittle)}}> <strong style={{color:"grey"}} ><b >{elem.totalitems}</b></strong></td>
     <td className="sales_tdatas"onClick={()=>{fetchDa(elem.tittle)}}> <strong className='green'><b> {elem.price}</b></strong> </td>
     <td className="sales_tdatas"onClick={()=>{fetchDa(elem.tittle)}}> <strong className='green'><b> {elem.expiry}</b></strong></td>
-    <td className='sales_tdatas' ><a href="#" className="btnclr my-2 mx-2" onClick={()=>dele(elem._id)}  >Delete</a>
+    <td className='sales_tdatas' ><Link to="/Login" className="btnclr my-2 mx-2" onClick={()=>dele(elem._id)}  >Delete</Link>
     </td>
   </tr>
 )

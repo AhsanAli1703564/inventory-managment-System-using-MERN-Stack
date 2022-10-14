@@ -12,7 +12,7 @@ function Footer() {
     <div><footer id="footer_container"  
     className={` ${(location.pathname==="/history"||location.pathname==="/Login")?"d-none":""}`}>
       <section id="sect_left">
-      <h1 id="footer_heading" >Services That costumers Seek <img width={"70px"} height={"50px"}  src={require("./3.png")}/></h1>
+      <h1 id="footer_heading" className='d-cyan'>Services That costumers Seek <img width={"70px"} height={"50px"}  src={require("./3.png")}/></h1>
         <ul>
          
         <a href="#" id="footer_anchor">shop 
@@ -26,7 +26,7 @@ function Footer() {
         </ul>
       </section>
       <section id='sect_right'>
-        <p id="footer_peragraph">
+        <p id="footer_peragraph" className='d-cyan'>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea corporis voluptatem excepturi tempore, aliquam maxime, magni officiis sed amet nesciunt dicta facilis molestias tempora tenetur quod? Est optio inventore ipsum.
         </p>
       <div id="icons_container">

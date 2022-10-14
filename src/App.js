@@ -82,16 +82,7 @@ function App() {
                 </>
               }
             />
-            <Route
-              exact
-              path="/Login"
-              element={
-                <>
-                  <Login />
-                  <Footer />
-                </>
-              }
-            />
+            <Route exact path="/Login" element={<><Login /><Footer /></>} />
             <Route
               exact
               path="/additem"
