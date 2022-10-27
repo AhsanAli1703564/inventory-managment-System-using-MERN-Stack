@@ -1,5 +1,5 @@
 import "./App.css";
-
+import "./Login.css"
 import Navbar from "./components/Navbar";
 import Inventory from "./components/Inventory";
 import Item from "./components/Item";
@@ -12,7 +12,10 @@ import Signup from "./components/Signup";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import NewsPakistanPoliticsTopHeadlines from "./components/NewsPakistanPoliticsTopHeadlines";
+import Newscard from "./components/Newscard";
+import News_Nav from "./components/News_Nav"
+import Forcast from "./components/Forcast";
 function App() {
   return (
     <div>
@@ -72,6 +75,16 @@ function App() {
                 </div>
               }
             />
+              <Route
+              exact
+              path="/News"
+              element={
+                <>
+                <NewsPakistanPoliticsTopHeadlines/>
+                <Footer/>
+                </>
+              }
+            />
             <Route
               exact
               path="/home"
@@ -92,6 +105,26 @@ function App() {
                   <Inventory />
                   <Footer />
                 </>
+              }
+            />
+              <Route
+              exact
+              path="/Weather"
+              element={
+                <div >
+                  <News_Nav/>
+                  <Newscard />
+                </div>
+              }
+            />
+             <Route
+              exact
+              path="/ForcastFivedays"
+              element={
+                <div >
+                  <News_Nav/>
+                  <Forcast />
+                </div>
               }
             />
           </Routes>

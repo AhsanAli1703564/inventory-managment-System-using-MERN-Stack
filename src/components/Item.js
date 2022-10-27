@@ -64,7 +64,6 @@ function Item() {
     }
     
     // if(recipt.date=="Date"){
-      console.log(recipt)
       let ar=recipt
       ar.push(obj)
     // }
@@ -154,7 +153,7 @@ localStorage.setItem("arrayofhistory",JSON.stringify(objarray))
 
     }
   return (
-    <div >  <div>
+    <div id='item-border'>  <div>
     <label id="Item_label"  className='text_align_center'>{item.tittle}</label>
     <div >
    <div className="card my-3 mx-3" >
@@ -169,7 +168,7 @@ localStorage.setItem("arrayofhistory",JSON.stringify(objarray))
 
  <form id='Item_form'  >
   <br /> <input  onChange={control} className="Item_form_input"   placeholder="تعداد"  id="it" autoComplete="off" aria-label="number"/>
-   <br /><input style={{height:"4vh",width:"100%"}} autoComplete="off" onChange={control} placeholder="قیمت" id="sold" aria-label="number"/>
+   <br /><input className="Item_form_input" autoComplete="off" onChange={control} placeholder="قیمت" id="sold" aria-label="number"/>
  </form>
  
  <Link to=""  className="btnclr " onClick={(e)=>{

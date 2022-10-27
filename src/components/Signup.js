@@ -54,36 +54,46 @@ const sign = async (name, email, password) => {
   }
   }
   return (
-    <div style={{paddingBottom:"10vh",marginTop:"90px"}}>
-  <div id="card">
-<div id="card-content">
- <div id="card-title">
-   <h2>Sign-up</h2>
-   <div className="underline-title"></div>
- </div>
- <form method="post" className="form">
-  <label className='labeli' htmlFor="Name" style={{paddingTop:"13px"}}>
-    &nbsp;Name
-  </label>
-<input  className="form-content" onChange={control} id="name" type="name" name="name"  required />
-   <label className='labeli' htmlFor="user-email" style={{paddingTop:"13px"}}>
-       &nbsp;Email
-     </label>
-   <input  className="form-content" onChange={control} id="email" type="email" name="email" autoComplete="on" required />
-   <div className="form-border"></div>
-   <label htmlFor="user-password" className='labeli' style={{paddingTop:"22px"}}>&nbsp;Password
-     </label>
-   <input  onChange={control }  id="password" className="form-content" type="password" name="password" required />
-   <div className="form-border"></div>
-<center><button onClick={()=>sign(name,email,password)} type="button"  className=" btnclr mx-3 my-3 ">Sign-up</button></center>
-<center><div className='container my-3' >
-
-</div></center>
- </form>
- 
+    <div style={{marginTop: "0px",
+    borderBottom: "20px solid rgba(0,0,0,0.25)"}} id="Login-Signup-Body">
+   <div className="box-form" >
+	<div className="left">
+		<div className="overlay">
+		<h1 id="h1">Sign-up</h1>
+		<span>Let get this journey transform from the register and pen to the keyboard and printer.
+      from drawers to the databases from waste of resources to utilize the resources.
+    </span>
+		<span>
+			<p>Visit Home page</p>
+			<Link to="/home"></Link>
+		</span>
+		</div>
+	</div>
+	
+	
+		<div className="right">
+		<h5 >Signup</h5>
+		<p>Do, have an account? <Link to="/Login"  type="button" id="login-btn" >Login</Link>
+     </p>
+		<div className="inputs">
+    <input   onChange={control} id="name" type="name" name="name"  required />
+    <br/>
+			<input  onChange={control} id="email" type="email" name="email"/>
+			<br/>
+			<input  onChange={control }  id="password" className="form-content" type="password" name="password" required/>
+		</div>
+			
+			<br/>
+			<br/>
+		<div className="remember-me--forget-password">
+	
+		</div>
+			
+			<br/>
+      <button onClick={()=>sign(name,email,password)} type="button" id="login-btn">Sign-up</button>
+	</div>
+	
 </div>
-
-</div>
-    </div>
+  </div>
   )
 }

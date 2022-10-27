@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import ims from "./ims.svg"
+import { Link } from 'react-router-dom'
 
 function Footer() {
     const location=useLocation()
@@ -12,22 +12,22 @@ function Footer() {
     <div><footer id="footer_container"  
     className={` ${(location.pathname==="/history"||location.pathname==="/Login")?"d-none":""}`}>
       <section id="sect_left">
-      <h1 id="footer_heading" className='d-cyan'>Services That costumers Seek <img width={"70px"} height={"50px"}  src={require("./3.png")}/></h1>
+      <h1 id="footer_heading" className='d-cyan'>Services That costumers Seek <img id="footer-img" width={"70px"} height={"50px"}  src={require("./3.png")}/></h1>
         <ul>
          
-        <a href="#" id="footer_anchor">shop 
-          </a>  <a href="#" id="footer_anchor">Outlets 
-           </a>  <a href="#" id="footer_anchor">Nearby Councellors
-          </a>  <a href="#" id="footer_anchor">Dealers
-          </a>  <a href="#" id="footer_anchor">Terms and Conditions
-           </a>
+        <Link to="/News" id="footer_anchor">shop 
+          </Link>  <Link to="/News" id="footer_anchor">Outlets 
+           </Link>  <Link to="/News" id="footer_anchor">Nearby Councellors
+          </Link>  <Link to="/News" id="footer_anchor">Dealers
+          </Link>  <Link to="/News" id="footer_anchor">Terms and Conditions
+           </Link>
           <h3 id="copyright"> &#169; This Soft Product and Its Data is CopyRight Protected</h3>
          
         </ul>
       </section>
       <section id='sect_right'>
         <p id="footer_peragraph" className='d-cyan'>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea corporis voluptatem excepturi tempore, aliquam maxime, magni officiis sed amet nesciunt dicta facilis molestias tempora tenetur quod? Est optio inventore ipsum.
+       All the rights of this software are reserved and the contents are third party free and without any dependency to a third party .
         </p>
       <div id="icons_container">
         <img className='footer_icon'  src={require('./figma-icon.png')} width={"50px"} height={"50px"}/>

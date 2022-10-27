@@ -99,40 +99,62 @@ gethistory()
  
 }
 }
+function setWithExpiry(key, value, expiration) {
+  const now = new Date()
+
+  // `item` is an object which contains the original value
+  // as well as the time when it's supposed to expire
+  const item = {
+      value: value,
+      expiry: now.getTime() + expiration,
+  }
+  localStorage.setItem(key, JSON.stringify(item))
+}
 
   return (
-   
-    <div  style={{paddingBottom:"10vh",marginTop:"90px"}}>
-     <div id="card">
-  <div id="card-content">
-    <div id="card-title">
-      <h2>LOGIN</h2>
-      <div className="underline-title"></div>
-    </div>
-    <form method="post" className="form">
-      <label className='labeli' htmlFor="user-email" style={{paddingTop:"13px"}}>
-          &nbsp;Email
-        </label>
-      <input  className="form-content" onChange={control} id="email" type="email" name="email" autoComplete="on" required />
-      <div className="form-border"></div>
-      <label htmlFor="user-password" className='labeli' style={{paddingTop:"22px"}}>&nbsp;Password
-        </label>
-      <input  onChange={control }  id="password" className="form-content" type="password" name="password" required />
-      <div className="form-border"></div>
-<center><button  onClick={loging} type="button"  className=" btnclr  my-3 " >Login</button></center>
-<center><div className='container my-3' >
-  <span className='fw-lighter ' >  Sign up if dont have an account</span>
-  
-  
-  </div></center>
-    </form>
-    
+  <div style={{marginTop: "0px",
+    borderBottom: "20px solid rgba(0,0,0,0.25)"}} id="Login-Signup-Body">
+   <div className="box-form" >
+	<div className="left">
+		<div className="overlay">
+		<h1 id="h1">Login to Account</h1>
+		<span>Let get this journey transform from the register and pen to the keyboard and printer.
+      from drawers to the databases from waste of resources to utilize the resources.
+    </span>
+		<span>
+			<p>Visit Home-page</p>
+			<Link to="/home"><i className="fa fa-facebook" aria-hidden="true"></i></Link>
+		</span>
+		</div>
+	</div>
+	
+	
+		<div className="right">
+		<h5>Login</h5>
+		<p>Don't have an account? <Link to="/Signup"  type="button" id="login-btn" >Sign-up</Link>
+    <span style={{display:"block"}} className='mx-3'>all it takes a minute</span> </p>
+		<div className="inputs">
+      
+			<input  onChange={control} id="email" type="email" name="email"/>
+			<br/>
+			<input  onChange={control }  id="password" name='password' type="password" />
+		</div>
+			
+			<br/>
+			<br/>
+		<div className="remember-me--forget-password">
+	<label className='label-of-login'>
+		<input type="checkbox" name="item" defaultChecked/>
+		<span className="text-checkbox" onClick={()=>{setWithExpiry(document.getElementById("email").value,document.getElementById("password").value,12000)}}>Remember me</span>
+	</label>
+			<p>forget password?</p>
+		</div>
+			
+			<br/>
+			<button onClick={loging} id="login-btn">Login</button>
+	</div>
+	
+</div>
   </div>
-
-</div>
-<center><span style={{color:"grey", marginTop:"4vh"}}>Don,t have an Account 
-<Link to="/Signup"  type="button" id="btnclr" className='btnclr my-3'><strong className='btnclr my-3'>Sign-up</strong></Link></span></center>
-
-</div>
   )
   }

@@ -24,7 +24,7 @@ function Saleshistory() {
  
   return (
     <div  className='mt-8'  >
-      <center><h1  className={message}>Carpe Diam ! No sales till Now . </h1></center>
+   
       <div id="overflow_table1">
       <table  className="sales_table">
     <thead>
